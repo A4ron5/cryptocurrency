@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-
 import { createEvent, createStore } from "effector"
 
 const themes = ["light", "dark"]
@@ -17,7 +15,7 @@ $selectedTheme.on(themeToggled, (_, theme) => nextTheme[theme])
 
 $selectedTheme.watch(saveTheme)
 
-const activateTheme = () => {
+function activateTheme() {
   const theme = localStorage.getItem("theme")
   const defaultTheme = themes[0]
 
@@ -29,6 +27,6 @@ const activateTheme = () => {
   return defaultTheme
 }
 
-const saveTheme = (theme) => {
+function saveTheme(theme) {
   localStorage.setItem("theme", theme)
 }
