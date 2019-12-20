@@ -2,16 +2,13 @@ import { createEvent, createStore } from "effector"
 
 const themes = ["light", "dark"]
 
-const nextTheme = {
-  light: "light",
-  dark: "dark",
-}
-
 export const themeToggled = createEvent()
 
 export const $selectedTheme = createStore(activateTheme())
 
-$selectedTheme.on(themeToggled, (_, theme) => nextTheme[theme])
+$selectedTheme.on(themeToggled, (state) =>
+  state === "light" ? "dark" : "light",
+)
 
 $selectedTheme.watch(saveTheme)
 
