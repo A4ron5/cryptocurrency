@@ -1,6 +1,5 @@
-/* eslint-disable import/no-unresolved */
 import * as React from "react"
-import { Example } from "@features/box"
+import { ThemeToggler } from "@features/themetoggler"
 import { Normalize } from "styled-normalize"
 import { ThemeProvider } from "@features/themeprovider"
 import { GlobalStyles } from "./ui/globalstyles"
@@ -10,7 +9,7 @@ export const App = () => {
     <ThemeProvider>
       <Normalize />
       <GlobalStyles />
-      <Example />
+      <ThemeToggler />
     </ThemeProvider>
   )
 }
