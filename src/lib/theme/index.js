@@ -10,7 +10,7 @@ $selectedTheme.on(themeToggled, (state) =>
   state === "light" ? "dark" : "light",
 )
 
-$selectedTheme.watch(saveTheme)
+// $selectedTheme.watch(saveTheme)
 
 function activateTheme() {
   const theme = localStorage.getItem("theme")
@@ -24,6 +24,8 @@ function activateTheme() {
   return defaultTheme
 }
 
-function saveTheme(theme) {
-  localStorage.setItem("theme", theme)
-}
+// function saveTheme(theme) {
+//   localStorage.setItem("theme", theme)
+//   const switched = theme === "dark"
+//   localStorage.setItem("switched", switched)
+// }
