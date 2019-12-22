@@ -10,7 +10,7 @@ const Checkbox = styled.input.attrs({
 })`
   height: 0;
   width: 0;
-  visibility: hidden;
+  display: none;
   &:checked + label {
     background: #121212;
   }
@@ -25,8 +25,8 @@ const Label = styled.label.attrs({
 })`
   cursor: pointer;
   text-indent: -9999px;
-  width: 65px;
-  height: 35px;
+  width: 52px;
+  height: 30px;
   background: #fff;
   display: block;
   border-radius: 100px;
@@ -36,17 +36,17 @@ const Label = styled.label.attrs({
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: #e5e5e5;
     border-radius: 25px;
     transition: 0.3s;
   }
 `
-export const Toggler = ({ handleClick }) => {
+export const Toggler = ({ handleClick, checked }) => {
   return (
     <Container>
-      <Checkbox />
+      <Checkbox defaultChecked={checked} />
       <Label onClick={handleClick} />
     </Container>
   )
@@ -54,4 +54,5 @@ export const Toggler = ({ handleClick }) => {
 
 Toggler.propTypes = {
   handleClick: PropTypes.func.isRequired,
+  checked: PropTypes.string.isRequired,
 }
