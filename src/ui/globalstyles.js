@@ -15,5 +15,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: var(--surface);
     color: var(--primary-text);
+    font-family: "Times New Roman";
+    font-size: 14px;
   }
 `
