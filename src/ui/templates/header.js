@@ -6,4 +6,5 @@ export const Header = styled.header`
   flex-direction: row-reverse;
   margin-bottom: 2px;
   padding: 20px;
+  padding-right: 0;
 `
