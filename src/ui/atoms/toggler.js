@@ -29,7 +29,6 @@ const Label = styled.label.attrs({
   height: 30px;
   background: #fff;
   display: block;
-  border-radius: 100px;
   position: relative;
   &:after {
     content: "";
@@ -39,7 +38,6 @@ const Label = styled.label.attrs({
     width: 20px;
     height: 20px;
     background: #e5e5e5;
-    border-radius: 25px;
     transition: 0.3s;
   }
 `
