@@ -1,57 +1,50 @@
 import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
+import { Heart } from "@ui/atoms"
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  height: 100px;
   background: var(--primary);
-  border: 1px solid var(--primary-text);
-  border-radius: 5px;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.7;
-  }
+  font-size: 20px;
 `
 
 const CurrencyLogo = styled.img`
+  width: 100px;
   height: 100px;
-  line-height: 100px;
   text-align: center;
+  margin-bottom: 10px;
 `
 const CurrencyName = styled.span`
-  height: 50px;
-  line-height: 50px;
   text-transform: uppercase;
+  text-align: center;
   font-weight: bold;
   color: var(--inverse);
-  font-size: 24px;
-  text-align: center;
+  margin-bottom: 10px;
 `
 
 const CurrencyPrice = styled.span`
-  height: 50px;
-  line-height: 50px;
   text-transform: uppercase;
-  font-size: 20px;
   color: #85bb65;
-  text-align: center;
+  margin-bottom: 20px;
 `
 const CurrencyRank = styled.span`
   position: absolute;
-  right: 5px;
-  top: 5px;
+  left: 0;
+  top: 0;
 `
 
-export const Currency = ({ logo, name, price, rank }) => (
+export const Currency = ({ logo, name, price, rank, handleClick }) => (
   <Wrapper>
+    <CurrencyRank>{rank}</CurrencyRank>
     <CurrencyLogo src={logo} alt="Logo" />
     <CurrencyName>{name}</CurrencyName>
     <CurrencyPrice>${price}</CurrencyPrice>
-    <CurrencyRank>#{rank}</CurrencyRank>
+    <Heart onClick={handleClick} />
   </Wrapper>
 )
 
@@ -60,6 +53,7 @@ Currency.propTypes = {
   logo: PropTypes.string,
   price: PropTypes.string,
   rank: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
 }
 
 Currency.defaultProps = {
