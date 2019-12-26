@@ -1,29 +1,43 @@
 import React, { useEffect } from "react"
-import { useList } from "effector-react"
+import { useList, useStore } from "effector-react"
 import { Currency } from "@ui/molecules/card"
-import { addedToFeatures } from "@features/heart/model"
-import { fetchedCurrencies, $currencies, loading } from "./model"
+import { Message } from "@ui/atoms"
+import { $featured, addedToFeatures } from "@features/heart/model"
+import {
+  fetchedCurrencies,
+  $currencies,
+  $currenciesError,
+  loading,
+} from "./model"
 
-const Loader = loading(<div>LOADING...</div>)
+const Loader = loading(<Message>LOADING</Message>)
 
 export const CurrenciesList = () => {
+  const errors = useStore($currenciesError)
+  const featured = useStore($featured)
+
   useEffect(() => {
     fetchedCurrencies()
   }, [])
 
-  const list = useList($currencies, (item) => (
-    <Currency
-      logo={item.logo_url}
-      name={item.name}
-      price={item.price}
-      rank={item.rank}
-      handleClick={() => addedToFeatures(item.id)}
-    />
-  ))
+  const list = useList($currencies, {
+    keys: [featured],
+    fn: (item) => (
+      <Currency
+        logo={item.logo_url}
+        name={item.name}
+        price={item.price}
+        rank={item.rank}
+        handleClick={() => addedToFeatures(item.id)}
+        like={featured.indexOf(item.id)}
+      />
+    ),
+  })
 
   return (
     <>
       <Loader />
+      <Message>{errors}</Message>
       {list}
     </>
   )
