@@ -7,18 +7,18 @@ export const Heart = styled.div`
   width: 15px;
   top: 0;
   margin: 0 10px;
-  background-color: gray;
+  background-color: ${(props) => (props.like > -1 ? "red" : "gray")};
   transform: rotate(-45deg);
   cursor: pointer;
   &:hover,
   &:hover::after,
   &:hover::before {
-    background-color: red;
+    background-color: ${(props) => (props.like > -1 ? "red" : "gray")};
   }
   &:after,
   &:before {
     content: "";
-    background-color: gray;
+    background-color: ${(props) => (props.like > -1 ? "red" : "gray")};
     border-radius: 50%;
     height: 15px;
     position: absolute;
