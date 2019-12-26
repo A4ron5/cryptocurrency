@@ -15,7 +15,7 @@ export const HomePage = () => {
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 256px;
   grid-gap: 10px;
 `
