@@ -38,15 +38,17 @@ const CurrencyRank = styled.span`
   top: 0;
 `
 
-export const Currency = ({ logo, name, price, rank, handleClick }) => (
-  <Wrapper>
-    <CurrencyRank>{rank}</CurrencyRank>
-    <CurrencyLogo src={logo} alt="Logo" />
-    <CurrencyName>{name}</CurrencyName>
-    <CurrencyPrice>${price}</CurrencyPrice>
-    <Heart onClick={handleClick} />
-  </Wrapper>
-)
+export const Currency = ({ logo, name, price, rank, handleClick, like }) => {
+  return (
+    <Wrapper>
+      <CurrencyRank>{rank}</CurrencyRank>
+      <CurrencyLogo src={logo} alt="Logo" />
+      <CurrencyName>{name}</CurrencyName>
+      <CurrencyPrice>${price}</CurrencyPrice>
+      <Heart like={like} onClick={handleClick} />
+    </Wrapper>
+  )
+}
 
 Currency.propTypes = {
   name: PropTypes.string,
@@ -54,6 +56,7 @@ Currency.propTypes = {
   price: PropTypes.string,
   rank: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
+  like: PropTypes.number,
 }
 
 Currency.defaultProps = {
@@ -61,4 +64,5 @@ Currency.defaultProps = {
   logo: "logo",
   price: "100",
   rank: "1",
+  like: -1,
 }
