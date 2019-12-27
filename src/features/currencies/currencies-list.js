@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useList, useStore } from "effector-react"
 import { Currency } from "@ui/molecules/card"
 import { Message } from "@ui/atoms"
-import { $featured, addedToFeatures } from "@features/heart/model"
+import { $featured, addedToFeatures } from "@lib/heart"
 import {
   fetchedCurrencies,
   $currencies,
@@ -18,7 +18,7 @@ export const CurrenciesList = () => {
 
   useEffect(() => {
     fetchedCurrencies()
-  }, [])
+  })
 
   const list = useList($currencies, {
     keys: [featured],

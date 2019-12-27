@@ -1,6 +1,6 @@
 import { createEffect, createStore } from "effector"
 import { createComponent } from "effector-react"
-import { request } from "@api/index"
+import { request } from "@api"
 
 export const fetchedCurrencies = createEffect()
 
