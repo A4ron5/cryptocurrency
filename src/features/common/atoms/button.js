@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Login = styled.span`
+export const Button = styled.span`
   color: var(--primary-text);
   font-weight: bold;
   text-transform: uppercase;
@@ -10,5 +10,8 @@ export const Login = styled.span`
   cursor: pointer;
   &:hover {
     opacity: 0.7;
+  }
+  &:first-of-type {
+    margin-left: 0;
   }
 `
