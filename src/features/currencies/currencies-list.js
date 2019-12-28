@@ -3,6 +3,7 @@ import { useList, useStore } from "effector-react"
 import { Currency } from "@ui/molecules/card"
 import { Message } from "@ui/atoms"
 import { $featured, addedToFeatures } from "@lib/heart"
+import { $isAuth } from "@features/common/model"
 import {
   fetchedCurrencies,
   $currencies,
@@ -15,13 +16,14 @@ const Loader = loading(<Message>LOADING</Message>)
 export const CurrenciesList = () => {
   const errors = useStore($currenciesError)
   const featured = useStore($featured)
+  const auth = useStore($isAuth)
 
   useEffect(() => {
     fetchedCurrencies()
-  })
+  }, [])
 
   const list = useList($currencies, {
-    keys: [featured],
+    keys: [featured, auth],
     fn: (item) => (
       <Currency
         logo={item.logo_url}
@@ -30,6 +32,7 @@ export const CurrenciesList = () => {
         rank={item.rank}
         handleClick={() => addedToFeatures(item.id)}
         like={featured.indexOf(item.id)}
+        auth={auth}
       />
     ),
   })
@@ -37,8 +40,7 @@ export const CurrenciesList = () => {
   return (
     <>
       <Loader />
-      <Message>{errors}</Message>
-      {list}
+      {<Message>{errors}</Message> && list}
     </>
   )
 }
