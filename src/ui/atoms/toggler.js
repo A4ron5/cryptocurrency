@@ -2,7 +2,9 @@ import * as React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 
-const Container = styled.div``
+const Container = styled.div`
+  margin-left: auto;
+`
 
 const Checkbox = styled.input.attrs({
   type: "checkbox",
@@ -43,7 +45,7 @@ const Label = styled.label.attrs({
 `
 export const Toggler = ({ handleClick, checked }) => {
   return (
-    <Container>
+    <Container title="Click for change theme">
       <Checkbox defaultChecked={checked} />
       <Label onClick={handleClick} />
     </Container>
