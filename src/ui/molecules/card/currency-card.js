@@ -11,6 +11,12 @@ const Wrapper = styled.div`
   position: relative;
   background: var(--primary);
   font-size: 20px;
+  @media (max-width: 1340px) {
+    font-size: 18px;
+  }
+  @media (max-width: 870px) {
+    font-size: 16px;
+  }
 `
 
 const CurrencyLogo = styled.img`
@@ -18,6 +24,14 @@ const CurrencyLogo = styled.img`
   height: 100px;
   text-align: center;
   margin-bottom: 10px;
+  @media (max-width: 1340px) {
+    width: 75px;
+    height: 75px;
+  }
+  @media (max-width: 870px) {
+    width: 50px;
+    height: 50px;
+  }
 `
 const CurrencyName = styled.span`
   text-transform: uppercase;
@@ -38,14 +52,22 @@ const CurrencyRank = styled.span`
   top: 0;
 `
 
-export const Currency = ({ logo, name, price, rank, handleClick, like }) => {
+export const Currency = ({
+  logo,
+  name,
+  price,
+  rank,
+  handleClick,
+  like,
+  auth,
+}) => {
   return (
     <Wrapper>
       <CurrencyRank>{rank}</CurrencyRank>
       <CurrencyLogo src={logo} alt="Logo" />
       <CurrencyName>{name}</CurrencyName>
       <CurrencyPrice>${price}</CurrencyPrice>
-      <Heart like={like} onClick={handleClick} />
+      {auth && <Heart like={like} onClick={handleClick} />}
     </Wrapper>
   )
 }
@@ -57,6 +79,7 @@ Currency.propTypes = {
   rank: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
   like: PropTypes.number,
+  auth: PropTypes.bool.isRequired,
 }
 
 Currency.defaultProps = {
