@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { CommonTemplate } from "@ui/templates"
+import { CommonTemplate as Template } from "@ui/templates"
 import { Header } from "./header"
 
-export const CommonCurrenciesTemplate = ({ children }) => {
-  return <CommonTemplate header={<Header />}>{children}</CommonTemplate>
+export const CommonTemplate = ({ children }) => {
+  return <Template header={<Header />}>{children}</Template>
 }
 
-CommonCurrenciesTemplate.propTypes = {
+CommonTemplate.propTypes = {
   children: PropTypes.node.isRequired,
 }
