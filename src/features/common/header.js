@@ -14,9 +14,15 @@ export const Header = () => {
   return (
     <Container>
       <Wrapper>
-        <Link to="/currencies">Main</Link>
-        <Link to="/featured">Featured</Link>
-        <Link to="/about">About</Link>
+        <Link auth to="/currencies">
+          Main
+        </Link>
+        <Link auth={auth} to="/featured">
+          Featured
+        </Link>
+        <Link auth={auth} to="/about">
+          About
+        </Link>
         <ThemeToggler />
         <Button onClick={handleClick}>{auth ? "Logout" : "Login"}</Button>
       </Wrapper>
