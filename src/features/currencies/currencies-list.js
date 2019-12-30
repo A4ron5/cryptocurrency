@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useList, useStore } from "effector-react"
 import { Currency } from "@ui/molecules/card"
 import { Message } from "@ui/atoms"
-import { $featured, addedToFeatures } from "@lib/heart"
+import { $featured, addedToFeatured } from "@lib/heart"
 import { $isAuth } from "@features/common/model"
 import {
   fetchedCurrencies,
@@ -30,7 +30,7 @@ export const CurrenciesList = () => {
         name={item.name}
         price={item.price}
         rank={item.rank}
-        handleClick={() => addedToFeatures(item.id)}
+        handleClick={() => addedToFeatured(item.id)}
         like={featured.indexOf(item.id)}
         auth={auth}
       />
