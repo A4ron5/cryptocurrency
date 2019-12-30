@@ -17,10 +17,10 @@ export const Header = () => {
         <Link auth to="/currencies">
           Main
         </Link>
-        <Link auth={auth} to="/featured">
+        <Link auth={auth} to={auth ? "/featured" : "#"}>
           Featured
         </Link>
-        <Link auth={auth} to="/about">
+        <Link auth={auth} to={auth ? "/about" : "#"}>
           About
         </Link>
         <ThemeToggler />
