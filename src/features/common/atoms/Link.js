@@ -5,7 +5,7 @@ export const Link = styled(NavLink).attrs({
   activeStyle: { opacity: "0.7" },
 })`
   text-decoration: none;
-  color: var(--primary-text);
+  color: ${(props) => (props.auth ? "var(--primary-text)" : "var(--surface)")};
   font-weight: bold;
   text-transform: uppercase;
   background: var(--primary);
