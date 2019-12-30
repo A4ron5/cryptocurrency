@@ -1,11 +1,14 @@
 import React from "react"
 import { CommonTemplate } from "@features/common/index"
 import { Container } from "@ui/templates"
+import { Authenticated } from "@features/common/authenticated"
 
-export const FeaturedPage = () => (
-  <CommonTemplate>
-    <Container>
-      <div>Featured</div>
-    </Container>
-  </CommonTemplate>
-)
+export const FeaturedPage = () => {
+  return (
+    <Authenticated>
+      <CommonTemplate>
+        <Container>{}</Container>
+      </CommonTemplate>
+    </Authenticated>
+  )
+}
