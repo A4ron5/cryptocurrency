@@ -1,10 +1,10 @@
 import { createStore, createEvent } from "effector"
 
-export const addedToFeatures = createEvent()
+export const addedToFeatured = createEvent()
 
 export const $featured = createStore(restore())
 
-$featured.on(addedToFeatures, heartClicked)
+$featured.on(addedToFeatured, heartClicked)
 
 function heartClicked(currencies, currency) {
   const is = currencies.includes(currency)
