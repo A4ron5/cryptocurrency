@@ -4,6 +4,7 @@ import { Currency } from "@ui/molecules/card"
 import { Message } from "@ui/atoms"
 import { $featured, addedToFeatured } from "@lib/heart"
 import { $isAuth } from "@features/common/model"
+import { ErrorCatcher } from "@features/common/molecules/error"
 import {
   fetchedCurrencies,
   $currencies,
@@ -14,7 +15,7 @@ import {
 const Loader = loading(<Message>LOADING</Message>)
 
 export const CurrenciesList = () => {
-  const errors = useStore($currenciesError)
+  const error = useStore($currenciesError)
   const featured = useStore($featured)
   const auth = useStore($isAuth)
 
@@ -40,7 +41,7 @@ export const CurrenciesList = () => {
   return (
     <>
       <Loader />
-      {<Message>{errors}</Message> && list}
+      <ErrorCatcher error={error}>{list}</ErrorCatcher>
     </>
   )
 }
