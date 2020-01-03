@@ -8,7 +8,7 @@ fetchedCurrencies.use(request)
 
 export const $currencies = createStore([]).on(
   fetchedCurrencies.done,
-  (_, { result }) => result.data.splice(0, 100),
+  (_, { result }) => result.data,
 )
 
 export const $currenciesError = createStore("").on(
