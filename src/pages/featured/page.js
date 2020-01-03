@@ -4,15 +4,15 @@ import { CommonTemplate } from "@features/common/index"
 import { Container, GridContainer } from "@ui/templates"
 import { Authenticated } from "@features/common/authenticated"
 import { Currency } from "@ui/molecules/card"
-import { $sampled } from "./model"
+import { $combined } from "./model"
 
 export const FeaturedPage = () => {
-  const list = useList($sampled, (item) => (
+  const list = useList($combined, (item) => (
     <Currency
-      logo={item.logo_url}
+      logo={item.image}
       name={item.name}
-      price={item.price}
-      rank={item.rank}
+      price={item.current_price}
+      rank={item.market_cap_rank}
     />
   ))
 

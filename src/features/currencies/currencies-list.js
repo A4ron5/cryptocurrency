@@ -27,10 +27,10 @@ export const CurrenciesList = () => {
     keys: [featured, auth],
     fn: (item) => (
       <Currency
-        logo={item.logo_url}
+        logo={item.image}
         name={item.name}
-        price={item.price}
-        rank={item.rank}
+        price={item.current_price}
+        rank={item.market_cap_rank}
         handleClick={() => addedToFeatured(item.id)}
         like={featured.indexOf(item.id)}
         auth={auth}
