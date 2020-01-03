@@ -73,19 +73,17 @@ export const Currency = ({
 }
 
 Currency.propTypes = {
-  name: PropTypes.string,
-  logo: PropTypes.string,
-  price: PropTypes.string,
-  rank: PropTypes.string,
-  handleClick: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  rank: PropTypes.number.isRequired,
+  handleClick: PropTypes.func,
   like: PropTypes.number,
-  auth: PropTypes.bool.isRequired,
+  auth: PropTypes.bool,
 }
 
 Currency.defaultProps = {
-  name: "coin",
-  logo: "logo",
-  price: "100",
-  rank: "1",
   like: -1,
+  handleClick: () => {},
+  auth: false,
 }
