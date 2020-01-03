@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { NavLink } from "react-router-dom"
+import PropTypes from "prop-types"
 
 export const Link = styled(NavLink).attrs({
   activeStyle: { opacity: "0.7" },
@@ -22,3 +23,7 @@ export const Link = styled(NavLink).attrs({
     color: red;
   }
 `
+
+Link.propTypes = {
+  auth: PropTypes.bool.isRequired,
+}
