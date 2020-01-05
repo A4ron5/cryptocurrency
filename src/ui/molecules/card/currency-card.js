@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
+import { NavLink } from "react-router-dom"
 import { Heart } from "@ui/atoms"
 
 const Wrapper = styled.div`
@@ -68,6 +69,7 @@ export const Currency = ({
       <CurrencyName>{name}</CurrencyName>
       <CurrencyPrice>${price}</CurrencyPrice>
       {auth && <Heart like={like} onClick={handleClick} />}
+      <NavLink to={`/currencies/currency/${name}`}>link</NavLink>
     </Wrapper>
   )
 }
