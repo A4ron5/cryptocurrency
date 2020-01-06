@@ -1,18 +1,11 @@
 import React, { useEffect } from "react"
 import { useList, useStore } from "effector-react"
 import { Currency } from "@ui/molecules/card"
-import { Message } from "@ui/atoms"
 import { $featured, addedToFeatured } from "@lib/heart"
 import { $isAuth } from "@features/common/model"
 import { ErrorCatcher } from "@features/common/molecules/error"
-import {
-  fetchedCurrencies,
-  $currencies,
-  $currenciesError,
-  loading,
-} from "./model"
-
-const Loader = loading(<Message>LOADING</Message>)
+import { Loader } from "@features/common/loader"
+import { fetchedCurrencies, $currencies, $currenciesError } from "./model"
 
 export const CurrenciesList = () => {
   const error = useStore($currenciesError)
@@ -40,8 +33,9 @@ export const CurrenciesList = () => {
 
   return (
     <>
-      <Loader />
-      <ErrorCatcher error={error}>{list}</ErrorCatcher>
+      <Loader effect={fetchedCurrencies}>
+        <ErrorCatcher error={error}>{list}</ErrorCatcher>
+      </Loader>
     </>
   )
 }
