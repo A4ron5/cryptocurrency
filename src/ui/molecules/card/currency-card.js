@@ -34,7 +34,8 @@ const CurrencyLogo = styled.img`
     height: 50px;
   }
 `
-const CurrencyName = styled.span`
+const CurrencyName = styled(NavLink)`
+  display: block;
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
@@ -66,10 +67,9 @@ export const Currency = ({
     <Wrapper>
       <CurrencyRank>{rank}</CurrencyRank>
       <CurrencyLogo src={logo} alt="Logo" />
-      <CurrencyName>{name}</CurrencyName>
+      <CurrencyName to={`/currencies/currency/${name}`}>{name}</CurrencyName>
       <CurrencyPrice>${price}</CurrencyPrice>
       {auth && <Heart like={like} onClick={handleClick} />}
-      <NavLink to={`/currencies/currency/${name}`}>link</NavLink>
     </Wrapper>
   )
 }
