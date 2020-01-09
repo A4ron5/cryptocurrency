@@ -10,5 +10,5 @@ export const Loader = ({ effect, children }) => {
 
 Loader.propTypes = {
   children: PropTypes.node.isRequired,
-  effect: PropTypes.bool.isRequired,
+  effect: PropTypes.func.isRequired,
 }
