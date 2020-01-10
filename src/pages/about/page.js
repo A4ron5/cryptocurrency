@@ -7,7 +7,7 @@ export const AboutPage = () => (
   <Authenticated>
     <CommonTemplate>
       <Container>
-        <div>About</div>
+        <div>Currency page, 2020 ©me</div>
       </Container>
     </CommonTemplate>
   </Authenticated>
