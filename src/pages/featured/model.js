@@ -1,4 +1,4 @@
-import { combine } from "effector"
+import { combine } from "effector-logger"
 import { $currencies } from "@features/currencies/model"
 import { $featured } from "@lib/heart"
 

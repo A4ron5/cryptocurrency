@@ -1,4 +1,4 @@
-import { createEffect, createStore } from "effector"
+import { createEffect, createStore } from "effector-logger"
 import { createComponent } from "effector-react"
 import { request } from "@api"
 

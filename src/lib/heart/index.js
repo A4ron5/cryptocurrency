@@ -1,4 +1,4 @@
-import { createStore, createEvent } from "effector"
+import { createStore, createEvent } from "effector-logger"
 
 export const addedToFeatured = createEvent()
 

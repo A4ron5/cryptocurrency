@@ -1,4 +1,4 @@
-import { createStore } from "effector"
+import { createStore } from "effector-logger"
 import { themeToggled } from "@lib/theme"
 
 export const $toggledButton = createStore(restoreButton())

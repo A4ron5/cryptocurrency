@@ -1,4 +1,4 @@
-import { createStore, createEffect } from "effector"
+import { createStore, createEffect } from "effector-logger"
 import { requestInfo } from "@api"
 
 export const fetchedCurrencyInfo = createEffect()
