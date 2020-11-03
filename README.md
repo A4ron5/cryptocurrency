@@ -1,5 +1,5 @@
 # @Cryptocurrency
-[![Runme](https://runme.io/static/button.svg)](https://runme.io/run?app_id=ffeb1728-bb05-4d24-98ab-c86e4961bb8c)
+
 ## Aliases
 
 - `@api` resolves to `./src/api/`
